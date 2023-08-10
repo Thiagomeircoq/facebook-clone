@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title mb-2">facebook</h1>
+                <p class="description">O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</p>
+            </div>
+            <div class="col">
+                <form>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Email ou telefone" name="email-telefone">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Senha" name="senha">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </div>
+                    <div class="mb-2">
+                        <a href="Esqueceu a senha?"></a>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success">Criar nova conta</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
