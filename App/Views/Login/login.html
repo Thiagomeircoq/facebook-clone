@@ -4,32 +4,161 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="title mb-2">facebook</h1>
-                <p class="description">O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</p>
+<div class="container facebook-container">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6 description-container">
+            <div class="mb-2 facebook-logo">
+                <img src="../../public/images/facebook-logo.svg" alt="Facebook Logo">
             </div>
-            <div class="col">
-                <form>
-                    <div class="mb-3">
-                      <input type="text" class="form-control" placeholder="Email ou telefone" name="email-telefone">
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" class="form-control" placeholder="Senha" name="senha">
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                    </div>
-                    <div class="mb-2">
-                        <a href="Esqueceu a senha?"></a>
-                    </div>
-                    <div class="mb-3">
-                        <button class="btn btn-success">Criar nova conta</button>
-                    </div>
-                  </form>
+            <p class="description">O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da
+                sua vida.</p>
+        </div>
+        <div class="col-md-5 col-lg-4 card shadow">
+            <form class="facebook-form card-body" action="#">
+                <div class="mb-4">
+                    <input type="text" class="form-control" placeholder="Email ou telefone" name="email-telefone">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Senha" name="senha">
+                </div>
+                <div class="mb-2 d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </div>
+                <div class="mb-3 text-center">
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+                <div class="mb-3 d-grid gap-2 justify-content-center">
+                    <button class="btn btn-success" id="criarContaBtn" data-bs-toggle="modal"
+                        data-bs-target="#criarContaModal">Criar nova conta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Criar Conta -->
+
+    <div class="modal fade col-md-5" id="criarContaModal" tabindex="-1" aria-labelledby="criarContaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="criarContaModalLabel">Cadastra-se</h5>
+                    <p class="description">É rápido e fácil.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" class="facebook-form">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <input type="text" class="form-control" placeholder="Nome">
+                            </div>
+
+                            <div class="col mb-3">
+                                <input type="text" class="form-control" placeholder="Sobrenome">
+                            </div>
+                        </div>
+
+                        <div class="col mb-3">
+                            <input type="text" class="form-control" placeholder="Celular ou email">
+                        </div>
+
+                        <div class="col mb-3">
+                            <input type="password" class="form-control" placeholder="Nova senha">
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <p class="notice-input">Data de nascimento!</p>
+
+                            <!-- Select Dia -->
+                            <div class="col-md-4 mb-3">
+                                <select class="form-select selectDia" name="day"></select>
+                            </div>
+
+                            <!-- Select Mês -->
+                            <div class="col-md-4 mb-3">
+                                <select class="form-select selectMes" name="month"></select>
+                            </div>
+
+                            <!-- Select Ano -->
+                            <div class="col-md-4 mb-3">
+                                <select class="form-select selectAno" name="year"></select>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <p class="notice-input">Data de nascimento!</p>
+
+                            <div class="row mb-3">
+
+                                <!-- Option Feminino -->
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="genero" id="feminino">
+                                        <label class="form-check-label" for="feminino">
+                                            Feminino
+                                        </label>
+                                    </div>
+                                </div>
+                            
+                                <!-- Option Masculino -->
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="genero" id="masculino">
+                                        <label class="form-check-label" for="masculino">
+                                            Masculino
+                                        </label>
+                                    </div>
+                                </div>
+                            
+                                <!-- Option Personalizado -->
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="genero" id="personalizado">
+                                        <label class="form-check-label" for="personalizado">
+                                            Personalizado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col mb-3">
+                            <!-- Select2 -->
+                            <select class="js-example-basic-single" name="state">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+
+                        <div class="col mb-3 d-none" id="pronomeDiv">
+
+                            <!-- Option Pronome -->
+                            <select class="form-select mb-3" name="pronome">
+                                <option value="default" disabled selected>Selecione seu pronome</option>
+                                <option value="feminino">Feminino: "Deseje a ela um feliz aniversário!"</option>
+                                <option value="masculino">Masculino: "Deseje a ele um feliz aniversário!"</option>
+                                <option value="neutro">Neutro: "Deseje a ele(a) um feliz aniversário!"</option>
+                            </select>
+                            
+
+                            <div class="col mb-3">
+                                <input type="password" class="form-control" placeholder="Gênero (opcional)">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-success">Criar Conta</button>
+                </div>
             </div>
         </div>
     </div>
+
+</div>
 
 {% endblock %}
