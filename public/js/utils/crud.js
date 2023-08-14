@@ -4,7 +4,7 @@
  * @param {String|Integer} id 
  * @returns {Object}
  */
-const showAll = async (url, id = "") => {
+export const show = async (url, id = "") => {
     try {
         const response = await fetch(url + id);
 
@@ -25,23 +25,22 @@ const showAll = async (url, id = "") => {
  * @param {String} url 
  * @returns {Object}
  */
-const store = async (data, url) => {
+export const store = async (data, url) => {
     try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+        $.ajax({
+            url: url,
+            data: data,
+            type: "POST",
+            dataType: "json",
+            success: function (callback) {
+                return callback;
             },
-            body: JSON.stringify(data)
-        });
-
-        if (!response.ok) {
-            throw new Error('Erro ao inserir os dados no banco de dados');
-        }
-
-        return await response.json();
-
+            error: function (error) {
+                return console.log(error);
+            }
+        })
     } catch (error) {
         console.log(error);
     }
 }
+

@@ -1,5 +1,4 @@
 // Função responsável por validar e preecher os selects de Data da página
-
 $(document).ready(function() {
 
     // Preenche as options com o valores corretos
